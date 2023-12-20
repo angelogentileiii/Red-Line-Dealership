@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ImageDropzone from "../components/ImageDropzone";
 import "../stylesheets/index.css"
 
 function ListCar(){
     const [ images, setImages ] = useState([])
-    const { carData, setCarData } = useOutletContext()
     const navigate = useNavigate()
 
     function handleFormSubmit(event){
@@ -17,23 +16,23 @@ function ListCar(){
         newCarListing.forEach((value, key) => {
             JSONData[key] = value
         })
-        JSONData['images'] = images
 
-        fetch(`http://localhost:3000/vehicles`, {
+        console.log(JSONData)
+        // JSONData['images'] = images
+        JSONData['owner_id'] = 1
+
+        fetch('/cars', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            "Accept": "application/json"
         },
         body: JSON.stringify(JSONData)
         })
         .then((res) => {
             if (res.ok) {
             return res.json().then((returnedData) => {
-                setCarData({
-                    ...carData,
-                    returnedData
-                })
+                console.log(returnedData)
                 navigate(`/vehicle/${returnedData.id}`)
             });
             } else {
@@ -77,7 +76,7 @@ function ListCar(){
                 <option value="suv">SUV</option>
                 <option value="pickup">Pickup</option>
             </select>
-            <select name="color">
+            <select name="body_color">
                 <option value="black">Black</option>
                 <option value="silver">Silver</option>
                 <option value="white">White</option>
@@ -90,7 +89,7 @@ function ListCar(){
                 <option value="pink">Pink</option>
             </select>
             <input
-            type="float"
+            type="number"
             name="price"
             placeholder="List Price..."
             // onChange={onFormValueInput}
@@ -102,7 +101,7 @@ function ListCar(){
             setImages={setImages}
             />
             <input
-            type="float"
+            type="number"
             name="total_miles"
             placeholder="Current Mileage..."
             // onChange={onFormValueInput}
@@ -111,13 +110,13 @@ function ListCar(){
                 {' Engine Details: '}
             </span>
             <input
-            type="integer"
-            name="engine_horsepower"
+            type="number"
+            name="engine_horse_power"
             placeholder="Horsepower..."
             // onChange={onFormValueInput}
             />
             <input
-            type="integer"
+            type="number"
             name="engine_torque"
             placeholder="Torque..."
             // onChange={onFormValueInput}

@@ -19,6 +19,8 @@ class User(db.Model, SerializerMixin):
     password = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
+    password_hash = db.Column(db.String)
     
     # car to user 
     owned_cars = db.relationship("Car", back_populates="user_obj", cascade="all, delete-orphan")
@@ -34,7 +36,6 @@ class User(db.Model, SerializerMixin):
 
     serialize_rules = ("-owned_cars", "-shopping_cart", "-favorite_cars", "-for_sale")
     
-     
     @validates('name')
     def validate_name(self, key, val):
         if 2 <= len(val) <= 35 and val.capitalize():
@@ -66,7 +67,7 @@ class Car(db.Model, SerializerMixin):
     price = db.Column(db.Integer, nullable = False)
     owner_id = db.Column(db.Integer, db.ForeignKey("users_table.id"))
     created_at = db.Column(db.DateTime, server_default=db.func.now())
-    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now(), nullable=True)
 
     # car to owner relationship
     user_obj = db.relationship("User", back_populates="owned_cars")

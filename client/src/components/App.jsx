@@ -1,5 +1,6 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 // components for site
 import Header from "./Header";
@@ -9,7 +10,10 @@ import routes from "../routes";
 
 function App() {
 
+  
+
   const router = createBrowserRouter(routes)
+
 
   return (
     <div>
@@ -17,7 +21,10 @@ function App() {
         <Header />
       </header>
       <main>
-        <RouterProvider router={router}/>
+       
+        <RouterProvider router={router}>
+
+        </RouterProvider>
       </main>
     </div>
   )

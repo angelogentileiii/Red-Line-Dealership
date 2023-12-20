@@ -5,7 +5,7 @@ from random import randint, choice
 
 # Remote library imports
 from faker import Faker
-
+from flask_bcrypt import Bcrypt
 # Local imports
 from app import app
 from models import db, Car, User, FavoriteCar, ShoppingCart, ForSale, CarImage
@@ -13,6 +13,7 @@ from models import db, Car, User, FavoriteCar, ShoppingCart, ForSale, CarImage
 if __name__ == "__main__":
     fake = Faker()
     with app.app_context():
+        bcrypt = Bcrypt(app)
 
         print("Starting seed...")
 
@@ -75,7 +76,8 @@ if __name__ == "__main__":
         users_list = []
 
         for _ in range(0, 5):
-            u = User(first_name=fake.first_name(), last_name=fake.last_name(), city=fake.company(), state=choice(state_list).capitalize(), username=fake.company(), password=fake.company())
+            password_hash=bcrypt.generate_password_hash("123").decode('utf-8')
+            u = User(first_name=fake.first_name(), last_name=fake.last_name(), city=fake.company(), state=choice(state_list).capitalize(), username=fake.company(), password=password_hash)
 
             users_list.append(u)
 
@@ -114,48 +116,54 @@ if __name__ == "__main__":
         #################
         ## Favorite Cars
 
-        favorite_cars_list = []
+        # favorite_cars_list = []
 
-        for _ in range(0, 5):
-            f = FavoriteCar(
-                user_id=choice(users_list).id,
-                car_id=choice(cars_list).id,
-            )
+        # for _ in range(0, 5):
+        #     f = FavoriteCar(
+        #         user_id=choice(users_list).id,
+        #         car_id=choice(cars_list).id,
+        #     )
 
-            favorite_cars_list.append(f)
+        #     favorite_cars_list.append(f)
 
-        db.session.add_all(favorite_cars_list)
-        db.session.commit()
+        # db.session.add_all(favorite_cars_list)
+        # db.session.commit()
 
-        print("seeded favorite cars")
+        # print("seeded favorite cars")
 
         ###############
         ## Shopping Cart
 
-        shopping_cart_list = []
+        # shopping_cart_list = []
 
-        for _ in range(0, 5):
-            s = ShoppingCart(
-                user_id=choice(users_list).id,
-                car_id=choice(cars_list).id
-                )
+        # for _ in range(0, 5):
+        #     s = ShoppingCart(
+        #         user_id=choice(users_list).id,
+        #         car_id=choice(cars_list).id
+        #         )
 
-            shopping_cart_list.append(s)
+        #     shopping_cart_list.append(s)
 
-        db.session.add_all(shopping_cart_list)
-        db.session.commit()
+        # db.session.add_all(shopping_cart_list)
+        # db.session.commit()
 
-        print("seeded shopping cart")
+        # print("seeded shopping cart")
 
         ############
-        ## For Sale
+        # For Sale
 
         for_sale_list = []
+        unique_cars = set()
 
-        for _ in range(0,5):
+        while len(unique_cars) < len(cars_list):
+            user = choice(users_list)
+            car = choice([car for car in cars_list if car.id not in unique_cars])
+            
+            unique_cars.add(car.id)
+            
             b = ForSale(
-                owner_id=choice(users_list).id,
-                car_id=choice(cars_list).id
+                owner_id=user.id,
+                car_id=car.id
             )
 
             for_sale_list.append(b)

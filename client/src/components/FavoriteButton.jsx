@@ -1,45 +1,42 @@
 import React, { useState, useEffect } from 'react';
 
-function FavoriteButton({ carData, carID }){
+function FavoriteButton({ carID, setFavFetchTrigger }){
     const [isFavorite, setIsFavorite] = useState(false)
-
-    const URL = "http://localhost:3000"
 
     // fetch to see if car is in the favorites list
     useEffect(() => {
-        fetch(URL + `/favorites/${carID}`)
+        fetch(`/favoritecars/${carID}`)
         .then(resp => {
-            if (resp.ok) {
-                setIsFavorite(true);
-            // NOTE: will change status code with backend link
-            } else if (resp.status === 404 ) {
+            if (resp.status === 218) {
                 setIsFavorite(false);
+            } else if (resp.ok) {
+                setIsFavorite(true);
             }
             })
             .catch((error) => {
                 console.error('Error fetching favorite data.', error)
             })
-        }, [carID])
+        }, [])
     
 
     function addToFavorites(event) {
         const carIDClicked = event.target.parentNode.id
-        const favoriteCar = carData.find((c) => c.id == carIDClicked)
 
-        fetch(URL + '/favorites', {
+        fetch('/favoritecars', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify(favoriteCar)
+            body: JSON.stringify({
+                user_id: 1,
+                car_id: carIDClicked
+            })
         })
         .then(resp => {
             if (resp.ok) {
                 setIsFavorite(true)
-                resp.json().then((returnedData) => {
-                    console.log(returnedData)
-                })
+                setFavFetchTrigger(true)
             }
         })
         .catch(error => {
@@ -48,23 +45,15 @@ function FavoriteButton({ carData, carID }){
     }
 
     function removeFromFavorites(event){
-        const carIDClicked = event.target.parentNode.id
-        const favoriteCar = carData.find((c) => c.id == carIDClicked)
+        const favoriteIDClicked = event.target.parentNode.id
 
-        fetch(URL + `/favorites/${carIDClicked}`, {
+        fetch(`/favoritecars/${favoriteIDClicked}`, {
             method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(favoriteCar)
             })
             .then(resp => {
                 if (resp.ok) {
                 setIsFavorite(false);
-                resp.json().then((returnedData) => {
-                    console.log(returnedData)
-                })
+                setFavFetchTrigger(false)
                 }
             })
             .catch(error => {

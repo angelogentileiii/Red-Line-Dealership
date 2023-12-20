@@ -14,7 +14,7 @@ function CarInventory(){
 
      // fetch car data //
      useEffect(() => {
-      fetch('http://localhost:3000/vehicles')
+      fetch('/cars')
       .then((resp) => {
         if (resp.ok){
           resp.json().then((data) => {

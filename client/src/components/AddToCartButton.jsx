@@ -1,41 +1,48 @@
 import React, { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 
-function AddToCartButton ({ carData, carID }) {
+function AddToCartButton ({ carID, updateCart }) {
     const [inCart, setInCart] = useState(false)
-
-    const URL = "http://localhost:3000"
+    const [ currentUser ] = useOutletContext()
+    console.log(currentUser)
 
     // fetch to see if car is in the cart list 
     useEffect(() => {
-        fetch(URL + `/shoppingCart/${carID}`)
+        fetch(`/shoppingcarts/${carID}`)
         .then(resp => {
-            if (resp.ok) {
-                setInCart(true);
-            } else if (resp.status === 404 ) {
+            if (resp.status === 218) {
                 setInCart(false);
+            } else if (resp.ok) {
+                setInCart(true);
             }
             })
             .catch((error) => {
                 console.error('Error fetching favorite data.', error)
             })
-        }, [inCart])
+        }, [])
     
 
     function addToCart(event) {
         const carIDClicked = event.target.parentNode.id
-        const carToAdd = carData.find((c) => c.id == carIDClicked)
 
-        fetch(URL + '/shoppingCart', {
+        fetch(`/shoppingcarts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify(carToAdd)
+            body: JSON.stringify({
+                // set to currentUser.id when working
+                user_id: 1,
+                car_id: carIDClicked
+            })
         })
         .then(resp => {
             if (resp.ok) {
                 setInCart(true);
+                if (updateCart) {
+                    updateCart()
+                }
             }
         })
         .catch(error => {
@@ -44,23 +51,17 @@ function AddToCartButton ({ carData, carID }) {
     }
 
     function removeFromCart(event){
-        const carIDClicked = event.target.parentNode.id
-        const carToAdd = carData.find((c) => c.id == carIDClicked)
+        const cartIDClicked = event.target.parentNode.id
 
-        fetch(URL + `/shoppingCart/${carIDClicked}`, {
+        fetch(`/shoppingcarts/${cartIDClicked}`, {
             method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(carToAdd)
             })
             .then(resp => {
                 if (resp.ok) {
                 setInCart(false);
-                resp.json().then((returnedData) => {
-                    console.log(returnedData)
-                })
+                if (updateCart) {
+                    updateCart()
+                }
                 }
             })
             .catch(error => {
@@ -68,11 +69,11 @@ function AddToCartButton ({ carData, carID }) {
             });
     }
 
-    function onAddCartButtonClick(event){
+    function onAddCartButtonClick(carID){
         if (!inCart) {
-            addToCart(event)
+            addToCart(carID)
         } else {
-            removeFromCart(event)
+            removeFromCart(carID)
         }
     }
 

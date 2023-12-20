@@ -2,13 +2,43 @@ import React from "react";
 import FavoriteButton from "./FavoriteButton";
 import AddToCartButton from "./AddToCartButton";
 import CarDetailsButton from "./CarDetailsButton";
+import { useOutletContext } from "react-router-dom";
 
-function CarCard({ carData }) {
-  // Check if carData is not an array
-  if (!Array.isArray(carData)) {
+function CarCard({ carData, handleRemoveClick, updateCart, setFavFetchTrigger}){
+    if (!Array.isArray(carData)) {
     // Or handle the case when carData is not an array
-    return null; // Return null instead of displaying a loading message
-  }
+      return null; // Return null instead of displaying a loading message
+    }
+  
+    // iterate through prop data to populate list
+    const carItems = carData?.map((car) => {
+        const {make, model, year, img, id} = car
+        return(
+            <div key={id} id={id} className="car-card">
+                <img src={img} alt={`${make} ${model}`} />
+                <p>{`${year} ${make} ${model}`}</p>
+                <FavoriteButton 
+                carData={carData} 
+                carID={id}
+                setFavFetchTrigger={setFavFetchTrigger}
+                />
+                <AddToCartButton 
+                carID={id} 
+                handleRemoveClick={handleRemoveClick}
+                updateCart={updateCart}
+                />
+                {/* <FavoriteButton 
+                carData={carData} 
+                carID={id}
+                />
+                <AddToCartButton 
+                carID={id} 
+                handleRemoveClick={handleRemoveClick}
+                /> */}
+                <CarDetailsButton />
+            </div>
+        )
+    });
 
   return (
     <>

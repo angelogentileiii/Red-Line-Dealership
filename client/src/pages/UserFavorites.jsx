@@ -3,22 +3,25 @@ import CarCard from "../components/CarCard";
 
 function UserFavorites(){
     const [currentFavorites, setCurrentFavorites] = useState([])
-
-    const URL = "http://localhost:3000"
+    const [favFetchTrigger, setFavFetchTrigger] = useState(true)
 
     useEffect(() => {
-        fetch(URL + '/favorites')
+        fetch('/favoritecars')
             .then(res => {
                 if (res.ok) {
                     res.json().then(returnedData => {
-                        setCurrentFavorites(returnedData)
+                        setCurrentFavorites(returnedData.map((car) => car.car_obj))
+                        // console.log(carsInCart)
                     })
                 }
             })
-    }, [currentFavorites])
+    }, [favFetchTrigger])
+
+    // setFavFetchTrigger(currentFavorites)
 
     return (
-        <CarCard carData={currentFavorites} />
+        <CarCard carData={currentFavorites} setFavFetchTrigger={setFavFetchTrigger} />
+        // <CarCard carData={currentFavorites} />
     )
 }
 

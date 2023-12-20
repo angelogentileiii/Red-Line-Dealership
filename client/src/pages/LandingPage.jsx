@@ -5,11 +5,9 @@ import HeroSlider from "../components/HeroSlider"
 function LandingPage (){
     const [newestCars, setNewestCars] = useState([])
 
-    const URL = "http://localhost:3000"
-
     // build a backend route for the top 5/10 cars with the most recent created_at columns
     useEffect(() => {
-        fetch(URL + '/vehicles')
+        fetch('/cars')
         .then(res => {
             if (res.ok) {
                 res.json().then((returnedData) => {

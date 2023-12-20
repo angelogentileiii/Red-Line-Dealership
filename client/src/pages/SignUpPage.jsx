@@ -17,11 +17,11 @@ function SignUpPage(){
         })
 
         console.log(JSONData)
-        fetch(`http://localhost:3000/profiles`, {
+        fetch(`/users`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            'Accept': "application/json"
         },
         body: JSON.stringify(JSONData)
         })
