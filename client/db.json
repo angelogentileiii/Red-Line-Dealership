@@ -8,7 +8,11 @@
       "year": 2023,
       "cylinders": 4,
       "horsepower": 214,
-      "img": "https://bucket.dealervenom.com/2023/08/2023-Toyota-Camry-TRD-Model-Left.jpg?fm=pjpg&ixlib=php-3.3.1",
+      "images": [
+        "https://www.worldtoyota.com/new-toyota-camry-research/",
+        "https://www.toyotaofnorthcharlotte.com/blog/2023-toyota-camry-interior-is-stunning/",
+        "https://www.google.com/imgres?imgurl=https%3A%2F%2Fvandergrifftoyota.bhaimg.com%2Fwebsite%2Ftoyota%2F2023-camry-exterior.jpg&tbnid=66AHNQV07voGGM&vet=12ahUKEwjd9PmH-p6DAxUtFVkFHSuZA3MQMygNegQIARBx..i&imgrefurl=https%3A%2F%2Fwww.vandergrifftoyota.com%2Ftoyota-reviews%2F2023-camry.htm&docid=syVCRiQTSR2dbM&w=940&h=277&q=2023%20toyota%20camry%20se%20red%20ad&ved=2ahUKEwjd9PmH-p6DAxUtFVkFHSuZA3MQMygNegQIARBx"
+      ],
       "price": 22500,
       "createdAt": "2023-12-13 00:00:00:00",
       "updatedAt": null
@@ -74,20 +78,21 @@
       "updatedAt": null
     },
     {
-      "year": "2023",
+      "id": 6,
+      "year": 2023,
       "make": "Chevrolet",
       "model": "Truck",
       "body_style": "Pickup",
-      "price": "40000.00",
-      "img": "https://www.usatoday.com/gcdn/-mm-/293cbff8433f6d70183c9ba04db594119ce0a42f/c=848-903-2420-1791/local/-/media/2015/02/12/USATODAY/USATODAY/635592971319418457-13-2015-Chevrolet-Silverado-1500-Custom-032.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp",
-      "id": 6
+      "price": 40000.00,
+      "img": "https://www.usatoday.com/gcdn/-mm-/293cbff8433f6d70183c9ba04db594119ce0a42f/c=848-903-2420-1791/local/-/media/2015/02/12/USATODAY/USATODAY/635592971319418457-13-2015-Chevrolet-Silverado-1500-Custom-032.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp"
     },
     {
-      "year": "2023",
+      "id": 7,
+      "year": 2023,
       "make": "Truck",
       "model": "Truck",
       "body_style": "pickup",
-      "price": "50000",
+      "price": 50000,
       "images": [
         {
           "path": "—Pngtree—notch board signs_3138457.png",
@@ -100,17 +105,8 @@
         {
           "path": "3113939-middle.png",
           "preview": "blob:http://localhost:3001/d0410bf1-0f60-4917-8990-2f9c5c84f4dd"
-        },
-        {
-          "path": "bullet.png",
-          "preview": "blob:http://localhost:3001/eb8fe5a1-ce8b-4c37-b5f3-5f20cda1f8d8"
-        },
-        {
-          "path": "diamond.png",
-          "preview": "blob:http://localhost:3001/19e09df5-5d8b-46b6-9753-17bf4eab7a39"
         }
-      ],
-      "id": 7
+      ]
     }
   ],
   "profiles": [

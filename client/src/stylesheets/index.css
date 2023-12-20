@@ -162,90 +162,7 @@
   }
 
  
-  .slider__item {
-    max-width: 100%;
-    height: 650px;
-  }
-  
-  .slider__item-01 {
-    background: linear-gradient(rgb(0, 13, 107, 0.5), rgb(0, 13, 107, 0.5));
-    background-image: url("https://www.cnet.com/a/img/resize/449f9e27e7949cce20b641d6a869526221a33f09/hub/2018/07/23/052f8057-176e-411b-aa71-a750825c994e/005-2019-mercedes-amg-c63-coupe.jpg?auto=webp&width=1200");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .slider__item-02 {
-    background: linear-gradient(rgb(0, 13, 107, 0.5), rgb(0, 13, 107, 0.5));
-    background-image: url("https://www.cnet.com/a/img/resize/449f9e27e7949cce20b641d6a869526221a33f09/hub/2018/07/23/052f8057-176e-411b-aa71-a750825c994e/005-2019-mercedes-amg-c63-coupe.jpg?auto=webp&width=1200");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .slider__item-03 {
-    background: linear-gradient(rgb(0, 13, 107, 0.5), rgb(0, 13, 107, 0.5));
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/f0/2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .hero__slider {
-    overflow: hidden;
-  }
-  
-  .slider__content {
-    padding-top: 150px;
-  }
-  
-  .slider__content h1 {
-    font-size: 3.2rem;
-    font-weight: 600;
-  }
-  
-  .reserve__btn {
-    background: #fff !important;
-    color: #000d6b !important;
-    border: none;
-    outline: none;
-  }
-  
-  .reserve__btn a {
-    text-decoration: none;
-    font-weight: 600;
-    color: #000d6b;
-  }
-  
-  .reserve__btn:hover {
-    background: #000d6b;
-    color: #fff;
-  }
-  
-  @media only screen and (max-width: 992px) {
-    .slider__item {
-      height: 530px;
-      max-width: 100vw;
-    }
-  
-    .slider__content {
-      margin-top: -50px;
-    }
-  
-    .slider__content h1 {
-      font-size: 2rem;
-    }
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .slider__item {
-      height: 450px;
-    }
-  
-    .slider__content h1 {
-      font-size: 1.5rem;
-    }
-  }
+
 
 /* About.css */
 
@@ -320,3 +237,191 @@ p {
 #sell-car-form button:hover {
   background-color: #2980b9;
 }
+
+
+/* HeroSlider.css */
+
+.hero__slider {
+  margin-top: 20px;
+}
+
+.slider__item {
+  position: relative;
+  height: 400px; /* Adjust the height as needed */
+  width: 100%; /* Make sure the width takes up the full container */
+  overflow: hidden; /* Prevent images from getting cut off */
+}
+
+.slider__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ff0000; /* Red text color */
+}
+
+.slider__content h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.slider__content h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.reserve__btn {
+  background-color: #fff;
+  color: #ff0000; /* Red text color */
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.reserve__btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Set a fixed size for the images */
+.slider__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+}
+
+/* CarDetails.css */
+
+/* CarDetails.css */
+
+.car-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f8f8f8; /* Light background color */
+  padding: 20px; /* Add some padding for better spacing */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.car-details-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px; /* Add rounded corners to the image */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow to the image */
+}
+
+.additional-details {
+  margin-top: 20px;
+}
+
+.additional-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333; /* Darken the heading color */
+}
+
+.additional-details p {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #555; /* Slightly darken the text color */
+}
+
+.car-card {
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center bottom; /* Set transform origin for better scaling effect */
+}
+
+.car-card:hover {
+  transform: scale(1.1) translateY(-5px); /* Add translateY for a slight lift effect */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow on hover */
+}
+
+.car-card img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease-in-out; /* Apply transform transition to image as well */
+}
+
+.car-card:hover img {
+  transform: scale(1.1); /* Scale the image on hover for consistency */
+}
+
+.car-card p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: #f8f8f8;
+  border-radius: 0 0 12px 12px;
+  transition: background-color 0.3s ease-in-out; /* Add background color transition */
+}
+
+.car-card:hover p {
+  background-color: #e0e0e0; /* Adjust background color on hover */
+}
+
+.image-container {
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.details-container {
+  padding: 1.5rem;
+}
+
+.car-info {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+  .car-card,
+  .image-container {
+    border-radius: 12px;
+  }
+
+  .details-container {
+    padding: 1rem;
+  }
+
+  .car-info {
+    font-size: 1.125rem;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+
+
+
+
+
