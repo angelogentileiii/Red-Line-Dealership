@@ -8,7 +8,7 @@ function LoginPage(){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const [attemptLogin, logout] = useOutletContext()
+    const { attemptLogin } = useOutletContext()
 
     const navigate = useNavigate()
 

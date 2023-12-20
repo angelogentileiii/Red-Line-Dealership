@@ -6,19 +6,21 @@ function UserProfile(){
     const [profile, setProfile] = useState({});
     const { profileID } = useParams();
 
-    const [currentUser] = useOutletContext()
+    const { currentUser } = useOutletContext()
 
   // Fetch profile data for user //
     useEffect(() => {
-        fetch(`/users/${currentUser.id}`)
-        .then((response) => response.json())
-        .then((returnedData) => {
-            setProfile(returnedData);
-        })
-        .catch((error) => {
-            console.error('Error fetching profile:', error);
-        });
-    }, [profileID]);
+        if (currentUser) {
+            fetch(`/users/${currentUser.id}`)
+            .then((response) => response.json())
+            .then((returnedData) => {
+                setProfile(returnedData);
+            })
+            .catch((error) => {
+                console.error('Error fetching profile:', error);
+            });
+        }
+    }, [profileID, currentUser]);
 
     const {profile_img, first_name, last_name, username, cars} = profile
 

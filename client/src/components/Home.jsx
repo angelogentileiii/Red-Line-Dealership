@@ -70,7 +70,7 @@ function Home() {
   return (
     <div className="home-container">
       <NavBar currentUser={currentUser} logout={logout} />
-      <Outlet context={[attemptLogin, logout, currentUser]} />
+      <Outlet context={{attemptLogin, logout, currentUser}} />
     </div>
   );
 }
