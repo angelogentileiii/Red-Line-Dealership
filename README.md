@@ -38,7 +38,7 @@ Red Line Dealership is a demonstration of technical proficiency in building a fu
 1. Clone the repository:
    
     ```bash
-    git clone https://github.com/your-username/red-line-dealership.git
+    git clone https://github.com/your-username/Red-Line-Dealership.git
 
     cd red-line-dealership
     ```
