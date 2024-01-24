@@ -36,6 +36,7 @@ Red Line Dealership is a demonstration of technical proficiency in building a fu
 ### Front End (React/JavaScript)
 
 1. Clone the repository:
+   
     ```bash
     git clone https://github.com/your-username/red-line-dealership.git
 
@@ -43,16 +44,19 @@ Red Line Dealership is a demonstration of technical proficiency in building a fu
     ```
 
 4. Navigate the `client` directory:
+   
     ```bash
     cd client
     ```
 
 3. Install dependencies:
+   
     ```bash
     npm install
     ```
 
-4. Run the development server:
+5. Run the development server:
+   
     ```bash
     npm start
     ```
@@ -72,6 +76,7 @@ Before running the application, you need to set up your Cloudinary credentials. 
 
 4. **Add your Cloudinary credentials to .env:**
    - Open the `.env` file and add the following lines, replacing `YOUR_CLOUD_NAME`, `YOUR_API_KEY`, and `YOUR_API_SECRET` with your actual Cloudinary credentials:
+     
      ```dotenv
      CLOUD_NAME=YOUR_CLOUD_NAME
      API_KEY=YOUR_API_KEY
@@ -80,6 +85,7 @@ Before running the application, you need to set up your Cloudinary credentials. 
 
 5. **Cloudinary Configuration in Code:**
    - In your `app.py` (or relevant file), ensure that the Cloudinary configuration uses the environment variables. Here's an example:
+     
      ```python
      import os
      import cloudinary
@@ -103,19 +109,23 @@ Before running the application, you need to set up your Cloudinary credentials. 
 ### Back End (Flask/Python)
 
 1. Navigate to the `server` directory:
+   
     ```bash
     cd server
     ```
 
-2. Create and initialize a virtual environment (such as ```pipenv```):
+3. Create and initialize a virtual environment (such as ```pipenv```):
+   
     ```bash
     pipenv shell
     ```
-3. Install dependencies within the virtual environment:
+5. Install dependencies within the virtual environment:
+   
     ```bash
     pipenv install
 
-4. Run the Flask server:
+7. Run the Flask server:
+   
     ```bash
     python app.py
     ```
