@@ -1,5 +1,9 @@
 # Red Line Dealership
 
+<p align='center'>
+  <img width="1680" alt="RedLine Dealership" src="https://github.com/angelogentileiii/Red-Line-Dealership/assets/140743863/2b1b748e-6200-4ab7-888c-6083f61e4456">
+</p>
+
 ## Buy, List, and Sell someone's dream car. Your ride awaits!
 
 Welcome to Red Line Dealership, a full-stack pseudo e-commerce site designed for listing, buying, and selling vehicles. This project is built using a React front end, incorporating libraries such as React Hook Forms and Image Dropzone. The Image Dropzone feature allows users to effortlessly upload files from their desktop to their Cloudinary service for storage in the database.
