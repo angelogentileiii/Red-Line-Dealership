@@ -134,7 +134,14 @@ Before running the application, you need to set up your Cloudinary credentials. 
      )
      ```
 6. **Hashing key for password hashing**
-  - Also in your `.env` file, ensure that you have added a secret key to be utilized by the bcrypt hashing method when generating new user information. We recommend utilizing a randomizing package or function to generate a string of at least 32 characters to utilize as the key for password hashing.
+  - Also in your `.env` file:
+    
+     ```dotenv
+     PASS_SECRET=YOUR_PASS_SECRET_STRING
+     ```
+     
+  - Ensure that you have added a secret key to be utilized by the bcrypt hashing method when generating new user information
+  - We recommend utilizing a randomizing package or function to generate a string of at least **32** characters to utilize as the key for password hashing.
 
 ## Usage
 
