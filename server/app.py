@@ -47,18 +47,18 @@ def upload():
         for file_key in request.files:
             file_to_upload = request.files[file_key]
 
-            # print(file_to_upload.filename)
-            # print(file_to_upload.content_type)
+            print(file_to_upload.filename)
+            print(file_to_upload.content_type)
 
             upload_result = cloudinary.uploader.upload(file_to_upload)
-            # print(upload_result)
+            print(upload_result)
 
             uploaded_url = upload_result['secure_url']
-            # print(uploaded_url)
+            print(uploaded_url)
 
             uploaded_urls.append(uploaded_url)
 
-            # print(uploaded_urls)
+            print(uploaded_urls)
 
         return jsonify({"urls": uploaded_urls}), 200
 
