@@ -133,6 +133,8 @@ Before running the application, you need to set up your Cloudinary credentials. 
          api_secret=os.environ.get('API_SECRET')
      )
      ```
+6. **Hashing key for password hashing**
+  - Also in your `.env` file, ensure that you have added a secret key to be utilized by the bcrypt hashing method when generating new user information. We recommend utilizing a randomizing package or function to generate a string of at least 32 characters to utilize as the key for password hashing.
 
 ## Usage
 
