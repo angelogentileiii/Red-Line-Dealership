@@ -1,7 +1,7 @@
 # Red Line Dealership
 
 <p align='center'>
-  <img width="50%" style="border: 2px, solid, red" alt="RedLine Dealership Logo" src="client/public/assets/RED-Line-Logo.png">
+  <img width="50%" alt="RedLine Dealership Logo" src="client/public/assets/RED-Line-Logo-Border.png">
 </p>
 
 ## Buy, List, and Sell someone's dream car. Your ride awaits!
