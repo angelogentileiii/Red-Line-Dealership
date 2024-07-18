@@ -1,7 +1,7 @@
 /* Header.css */
 
 .header-container {
-    background-color: #333;
+    background-color: #000000;
     color: #fff;
     padding: 10px;
     display: flex;
@@ -12,6 +12,11 @@
 .logo-container {
     display: flex;
     align-items: center;
+}
+
+.logo-image {
+    height: 150px;
+    width: 150px;
 }
 
 .car-icon {
@@ -55,7 +60,7 @@ span {
 }
 
 .navigation-button:hover {
-    background-color: #4a4a4a;
+    background-color: #c0392b;
 }
 
 button {
@@ -142,8 +147,8 @@ p {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 65%;
-    max-width: 1200px;
+    width: 100%;
+    min-width: 280px;
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
@@ -156,17 +161,24 @@ p {
 }
 
 .price-filter {
-    display: flex;
     justify-content: center;
+    display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Space between elements */
     flex-wrap: wrap;
+    width: 600px; /* Allow items to wrap if there's not enough space */
 }
 
 .price-text {
+    flex: 0 1 auto; /* Allow the text to shrink but not grow */
     text-align: center;
-    width: 175px; /* Adjust the width as needed */
-    display: inline-block;
+    width: 175px; /* Adjust width as needed */
+    white-space: nowrap; /* Prevent the text from breaking onto a new line */
+}
+
+label {
+    flex: 0 1 auto; /* Prevent label from growing, allow it to shrink */
+    margin-right: 10px; /* Space between label and range input */
 }
 
 .car-listings {
@@ -181,9 +193,22 @@ p {
     text-align: center;
 }
 
-.car-card img {
+.image-container {
+    position: relative;
+    width: 100%; /* Adjust as needed */
+    height: 200px; /* Adjust to the desired height of the container */
+    background-color: #fff; /* Add black background */
+    overflow: hidden; /* Hide any overflow of the image */
+}
+
+.image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 100%;
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the container */
 }
 
 /* Adjust the margin between buttons in the button-container */

@@ -150,6 +150,7 @@ function CarInventory() {
 
                     {/* range for a slider to determine prices -- add in values to display above slider */}
                     <div className="price-filter">
+                        <label>Price Range:</label>
                         <input
                             type="range"
                             name="price"

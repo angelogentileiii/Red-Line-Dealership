@@ -1,0 +1,69 @@
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 37.5%;
+    min-width: 150px;
+    height: 8px; /* Adjust the height of the track */
+    background: #ddd; /* Track color (light gray) */
+    border-radius: 5px;
+    outline: none; /* Remove default outline */
+    position: relative; /* Necessary for the pseudo-elements */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px; /* Width of the thumb */
+    height: 15px; /* Height of the thumb */
+    background: #e74c3c; /* Thumb color (red) */
+    border-radius: 50%;
+    cursor: grab;
+    position: relative;
+    top: -4px; /* Vertically center the thumb on the track */
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 250px;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+/* For Firefox */
+input[type="range"]::-moz-range-thumb {
+    width: 15px; /* Width of the thumb */
+    height: 15px; /* Height of the thumb */
+    background: #e74c3c; /* Thumb color (red) */
+    border-radius: 50%;
+    cursor: grab;
+}
+
+input[type="range"]::-moz-range-track {
+    width: 65%;
+    height: 8px;
+    background: #dddddd; /* Track color (light gray) */
+    border-radius: 5px;
+}
+
+/* For Internet Explorer */
+input[type="range"]::-ms-thumb {
+    width: 15px; /* Width of the thumb */
+    height: 15px; /* Height of the thumb */
+    background: #e74c3c; /* Thumb color (red) */
+    border-radius: 50%;
+    cursor: grab;
+}
+
+input[type="range"]::-ms-track {
+    width: 65%;
+    height: 8px;
+    background: #dddddd; /* Track color (light gray) */
+    border-radius: 5px;
+}
+
+input[type="range"]::-ms-fill-lower {
+    background: #e74c3c;
+}
+
+input[type="range"]::-ms-fill-upper {
+    background: #f1f1f1;
+}
