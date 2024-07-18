@@ -10,19 +10,19 @@ function UserFavorites(){
 
     function updateFavorites(){
         fetch('/favoritecars')
-            .then(res => {
-                if (res.ok) {
-                    res.json().then(returnedData => {
-                        // console.log(returnedData)
-                        const userFavorites = returnedData.filter((car) => {
-                            if (car.user_id === currentUser?.id) {
-                                return car
-                            }
-                        })
-                        setCurrentFavorites(userFavorites.map((car) => car.car_obj))
+        .then(res => {
+            if (res.ok) {
+                res.json().then(returnedData => {
+                    // console.log(returnedData)
+                    const userFavorites = returnedData.filter((car) => {
+                        if (car.user_id === currentUser?.id) {
+                            return car
+                        }
                     })
-                }
-            })
+                    setCurrentFavorites(userFavorites.map((car) => car.car_obj))
+                })
+            }
+        })
     }
 
     

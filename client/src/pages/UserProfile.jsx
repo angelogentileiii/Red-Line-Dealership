@@ -31,7 +31,7 @@ function UserProfile(){
             <p>{username}</p>
             <p>{first_name}</p>
             <p>{last_name}</p>
-            <CarCard carData={profile.cars} />
+            <CarCard carData={cars} />
         </div>
     )
 }

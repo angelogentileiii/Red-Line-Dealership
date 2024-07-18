@@ -45,8 +45,8 @@ function ListCar(){
             console.log('after "image" append', formData.images)
 
             const response = await fetch('/upload', {
-            method: "POST",
-            body: formData
+                method: "POST",
+                body: formData
             })
 
             if (response.ok) {
@@ -150,45 +150,44 @@ function ListCar(){
             </select>
             <p>{errors.body_color?.message}</p>
             <input
-            type="number"
-            {...register("price", {required: 'Price is required'})}
-            placeholder="List Price..."
-            // onChange={onFormValueInput}
+                type="number"
+                {...register("price", {required: 'Price is required'})}
+                placeholder="List Price..."
+                // onChange={onFormValueInput}
             />
             <p>{errors.price?.message}</p>
-            <ImageDropzone 
-            // {...register("images")}
-            className='image-dropzone'
-            images={images}
-            setImages={setImages}
-            />
             <input
-            type="number"
-            {...register("total_miles", {required: 'Total Miles are required'})}
-            placeholder="Current Mileage..."
-            // onChange={onFormValueInput}
+                type="number"
+                {...register("total_miles", {required: 'Total Miles are required'})}
+                placeholder="Current Mileage..."
+                // onChange={onFormValueInput}
             />
             <p>{errors.total_miles?.message}</p>
+            <ImageDropzone 
+                // {...register("images")}
+                className='image-dropzone'
+                images={images}
+                setImages={setImages}
+            />
             <span>
                 {' Engine Details: '}
             </span>
             <input
-            type="number"
-            {...register("engine_horse_power")}
-            placeholder="Horsepower..."
-            // onChange={onFormValueInput}
+                type="number"
+                {...register("engine_horse_power")}
+                placeholder="Horsepower..."
+                // onChange={onFormValueInput}
             />
             <p>{errors.engine_horse_power?.message}</p>
             <input
-            type="number"
-            {...register("engine_torque")}
-            placeholder="Torque..."
-            // onChange={onFormValueInput}
+                type="number"
+                {...register("engine_torque")}
+                placeholder="Torque..."
+                // onChange={onFormValueInput}
             />
             <p>{errors.engine_torque?.message}</p>
-            <button 
-            type="submit"
-            >List</button>
+
+            <button type="submit">List</button>
         </form>
     )
 }

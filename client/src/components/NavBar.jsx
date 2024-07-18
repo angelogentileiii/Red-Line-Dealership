@@ -22,7 +22,7 @@ function NavBar({ currentUser, logout }) {
                     <Link to="/inventory" className="navigation-button">All Inventory</Link>
                     <Link to="/sellcar" className="navigation-button">List a Car</Link>
                     <Link to="/about" className="navigation-button">About</Link>
-                    <Link to="/profile/:userID" className="navigation-button">Profile</Link>
+                    {/* <Link to="/profile/:userID" className="navigation-button">Profile</Link> */}
                     <Link to="/myfavorites" className="navigation-button">Saved for Later</Link>
                     <Link to="/shoppingcart" className="navigation-button">My Cart</Link>
                     <button onClick={logout} className="navigation-button">Logout</button>

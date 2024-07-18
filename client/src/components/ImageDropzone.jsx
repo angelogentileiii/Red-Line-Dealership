@@ -32,7 +32,9 @@ function ImageDropzone({ images, setImages }) {
     // what to display when the images are correctly added
     const addedImages = images.map((img, index) => {
       return (
-          <div key={index}>
+          <div 
+            key={index} 
+          >
             <img
             src={img.preview}
             alt={img.name}
@@ -73,29 +75,27 @@ function ImageDropzone({ images, setImages }) {
       maxFiles: 5
     })
 
-    console.log(images)
-
-    // NOTE: function for uploading to cloudinary
-    // function uploadCloudinary(){
-    //   if (!images.length) {
-    //     return
-    //   }
-
-    //   const formData = new FormData()
-    //   images.forEach((image) => formData.append('file', image))
-    //   // cloudinary specific upload preset (built in Cloudinary)
-    //   formData.append('upload_preset', 'Redline_Dealership')
-  
-      
-    // }
-
-    // const URL = process.env.REACT_APP_NEXT_PUBLIC_CLOUDINARY_URL
-    // console.log(URL)
+    const addedImagesContainerStyle = {
+      display: 'flex', // or 'grid' for grid layout
+      flexDirection: 'row',
+      justifyContent: 'space-between', // or other justify-content values
+      alignItems: 'center', // or other align-items values
+      flexWrap: 'wrap', // This allows images to wrap to the next line if needed
+    };
 
     if (images.length < 5) {
       return (
         <>
-          <div {...getRootProps()} style={{border: "1pt dashed black"}}>
+          <div {...getRootProps()} 
+            style={{
+              margin: '0 auto',
+              marginBottom: '10px',
+              marginTop: '10px',
+              height: '100px',
+              border: "1pt dashed black",
+              width: '95%',
+              textAlign: 'center',
+            }}>
             <input {...getInputProps()} />
             {isDragActive ? (
               <>
@@ -111,15 +111,25 @@ function ImageDropzone({ images, setImages }) {
           </div>
           <div>
           {(addedImages.length > 0) ? (
-              <h4>Images to Upload</h4>
-            ) : (<></>)
+              <h4 style={{flexDirection: 'row'}}>Images to Upload</h4>
+            ) : (null)
             }
-            {addedImages}
+            <div 
+              style={{
+                display: 'flex', 
+                flexDirection: 'row',
+                justifyContent: 'space-between', // or other justify-content values
+                alignItems: 'center', // or other align-items values
+                flexWrap: 'wrap'
+              }}
+            >
+              {addedImages}
+            </div>
           </div>
           <div>
             {(errorFiles.length > 0) ? (
               <h4>Incompatible Images</h4>
-            ) : (<></>)
+            ) : (null)
             }
             {erroredFiles}
           </div>
@@ -131,14 +141,24 @@ function ImageDropzone({ images, setImages }) {
           <div>
             {(addedImages.length > 0) ? (
               <h4>Images</h4>
-            ) : (<></>)
+            ) : (null)
             }
-            {addedImages}
+            <div
+              style={{
+                display: 'flex', 
+                flexDirection: 'row',
+                justifyContent: 'space-between', // or other justify-content values
+                alignItems: 'center', // or other align-items values
+                flexWrap: 'wrap'
+              }}
+            >
+              {addedImages}
+            </div>
           </div>
           <div>
             {(errorFiles.length > 0) ? (
               <h4>Errors</h4>
-            ) : (<></>)
+            ) : (null)
             }
             {erroredFiles}
           </div>

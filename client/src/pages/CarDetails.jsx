@@ -21,7 +21,7 @@ function CarDetails() {
         .catch((error) => {
           console.error('Error fetching vehicle:', error);
         });
-    }, []);
+    }, [vehicleID]);
   
     if (!vehicle) {
       return null;

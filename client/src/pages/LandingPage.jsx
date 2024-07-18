@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CarCard from "../components/CarCard";
+// import CarCard from "../components/CarCard";
 import HeroSlider from "../components/HeroSlider"
 
 function LandingPage (){

@@ -64,6 +64,7 @@
     background-color: #e74c3c;
     color: white;
     border: none;
+    margin: 5px;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -72,17 +73,6 @@
   
   button:hover {
     background-color: #c0392b;
-  }
-  
-  /* "Saved for Later" button styles */
-  .navigation-buttono {
-    color: white;
-    background: linear-gradient(to right, #e74c3c, #c0392b);
-    transition: background 0.3s ease;
-  }
-  
-  .navigation-buttono:hover {
-    background: linear-gradient(to right, #d1483a, #b5342b);
   }
   
   /* "List" button styles */
@@ -197,10 +187,9 @@ p {
     z-index: 1;
   }
 
- 
   .slider__item {
     max-width: 100%;
-    height: 650px;
+    height: px;
   }
   
   .slider__item-01 {
@@ -316,7 +305,15 @@ p {
   color: #3498db;
 }
 
-/* Add these styles to your existing stylesheets or create a new one */
+.sell-car-container {
+  max-width: 400px;
+  margin: 50px auto; /* Increased margin to lower the form on the page */
+  padding: 20px;
+  background-color: #f9f9f9; /* Lighter background color for a clean look */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
 #sell-car-form {
   display: flex;
@@ -324,13 +321,20 @@ p {
   justify-content: space-between;
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 1%;
+  padding: 2.5%;
+  width: 30%;
+  align-content: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 #sell-car-form input,
 #sell-car-form select {
   flex: 1;
-  margin-bottom: 10px;
-  padding: 8px;
+  margin: 10px;
+  padding: 10px;
 }
 
 #sell-car-form .image-dropzone {
@@ -347,14 +351,14 @@ p {
 #sell-car-form button {
   flex-basis: 100%;
   padding: 10px;
-  background-color: #3498db;
-  color: #fff;
+  background-color: #e74c3c;
+  color: white;
   border: none;
   cursor: pointer;
 }
 
 #sell-car-form button:hover {
-  background-color: #2980b9;
+  background-color: #c0392b;
 }
 
 /* Combined HeroSlider.css */
