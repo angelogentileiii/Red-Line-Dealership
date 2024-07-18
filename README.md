@@ -1,7 +1,7 @@
 # Red Line Dealership
 
 <p align='center'>
-  <img width="1680" alt="RedLine Dealership" src="https://github.com/angelogentileiii/Red-Line-Dealership/assets/140743863/2b1b748e-6200-4ab7-888c-6083f61e4456">
+  <img width="50%" style="border: 2px, solid, red" alt="RedLine Dealership Logo" src="client/public/assets/RED-Line-Logo.png">
 </p>
 
 ## Buy, List, and Sell someone's dream car. Your ride awaits!
